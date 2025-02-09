@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophoneAlt, faStop } from "@fortawesome/free-solid-svg-icons";
 import { fetchGeminiResponse } from "./GeminiPrompt"; 
-
+import { useNavigate } from "react-router-dom";
 import { db } from "../firebase"; // Adjust based on your folder structure
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 
@@ -55,30 +55,10 @@ const SpeechToText = () => {
     setActiveField(null);
   };
 
+  
+  
+
   const confirmDetails = async () => {
-    // const details = { name, gender, age, medicalHistory, problem };
-    // console.log("Collected Details:", details);
-
-
-    // try {
-    //   await addDoc(collection(db, "Patients"), {
-    //     ...details,
-    //     createdAt: Timestamp.now(), // Store timestamp for sorting
-    //   });
-
-    //   console.log("Patient details stored successfully!");
-    //   alert("Data saved to Firestore!");
-    // } catch (error) {
-    //   console.error("Error storing patient details:", error);
-    //   alert("Failed to save data.");
-    // }
-
-
-    // const promptText = `Name: ${details.name}, Gender: ${details.gender}, Age: ${details.age}, Medical History: ${details.medicalHistory}, Problem: ${details.problem}`;
-    // const aiResponse = await fetchGeminiResponse(promptText);
-    
-    // setResponse(aiResponse);
-    // setShowAnalysis(true);
     const user = auth.currentUser; // Get the logged-in user
     if (!user) {
       alert("No user is logged in!");
@@ -126,6 +106,8 @@ const SpeechToText = () => {
             ))}
 
             <button className="confirm-btn" onClick={confirmDetails}>Confirm</button>
+            <button onClick={() => window.location.reload()}>Back</button>
+
       </div>
 
       {/* Analysis Section */}
