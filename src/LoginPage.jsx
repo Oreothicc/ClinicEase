@@ -203,7 +203,11 @@
     }
   
     return (
+      <>
+       
+     
       <div className="login-page-container">
+     
         <ToastContainer />
         <div id="recaptcha-container"></div>
   
@@ -245,6 +249,7 @@
               <p>
                 <SignInwithGoogle />
               </p>
+              
             </form>
           ) : (
             <div className="otp-verification">
@@ -274,12 +279,26 @@
   
           {!showOTP && (
             <>
+              <button 
+        onClick={() => window.location.href = "http://127.0.0.1:5000"} 
+        style={{
+          marginTop: "20px",
+          padding: "10px",
+          fontSize: "16px",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          cursor: "pointer",
+          marginBottom:"20px"
+        }}>
+        Go to Facial Recognition
+      </button>
               <div className="bg-white text-emerald-500 w-fit mx-auto p-4 rounded-full">
-                <BsTelephoneFill size={30} />
-              </div>
-              <label className="font-bold text-xl text-center">
+                <BsTelephoneFill size={30} />  <label className="font-bold text-xl text-center">
                 Verify your phone number
               </label>
+              </div>
+             
               <PhoneInput country={"in"} value={ph} onChange={setPh} />
               <button
                 onClick={onSignup}
@@ -297,6 +316,7 @@
           <img src="/login_img.jpg" alt="ClinicEase Illustration" />
         </div>
       </div>
+      </>
     );
   }
   
