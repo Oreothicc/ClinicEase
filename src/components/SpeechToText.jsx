@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMicrophoneAlt, faStop } from "@fortawesome/free-solid-svg-icons";
 import { fetchGeminiResponse } from "./GeminiPrompt"; 
 import { useNavigate } from "react-router-dom";
-import { db } from "../firebase"; // Adjust based on your folder structure
+import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 import { getAuth } from "firebase/auth";
