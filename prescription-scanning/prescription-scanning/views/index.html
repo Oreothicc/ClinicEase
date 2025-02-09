@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription OCR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Upload Prescription Image</h1>
+            <p class="subtitle">Upload an image of your prescription to extract medicine details.</p>
+            <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+                <div class="file-input">
+                    <input type="file" name="prescription" id="prescription" accept="image/*" required>
+                    <label for="prescription" class="file-label">
+                        <span class="file-button">Choose File</span>
+                        <span class="file-name">No file chosen</span>
+                    </label>
+                </div>
+                <button type="submit" class="upload-button">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to update the file name display
+        const fileInput = document.getElementById('prescription');
+        const fileNameDisplay = document.querySelector('.file-name');
+
+        fileInput.addEventListener('change', (e) => {
+            const fileName = e.target.files[0]?.name || 'No file chosen';
+            fileNameDisplay.textContent = fileName;
+        });
+    </script>
+</body>
+</html>

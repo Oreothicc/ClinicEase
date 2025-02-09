@@ -1,0 +1,4 @@
+node_modules/
+credentials.json
+prescription-ocr-service.json
+/.env
